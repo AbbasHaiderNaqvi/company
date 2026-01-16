@@ -36,18 +36,18 @@ export async function POST(request: NextRequest) {
     // Build email content
     const emailSubject = getEmailSubject(body.formType, body.name)
     const emailBody = buildEmailBody(body)
-
+    const resend="re_3DNwSWLS_33fqc2knvwnq972qsr4zdFzz"
     // If RESEND_API_KEY is configured, send via Resend
     if (process.env.RESEND_API_KEY) {
       const resendResponse = await fetch("https://api.resend.com/emails", {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+          Authorization: `Bearer ${resend}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
           from: process.env.EMAIL_FROM || "noreply@techneedllc.com",
-          to: process.env.EMAIL_TO || "hello@techneedllc.com",
+          to: process.env.EMAIL_TO || "info@techneedllc.com",
           subject: emailSubject,
           html: emailBody,
           reply_to: body.email,
