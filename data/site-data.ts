@@ -11,8 +11,8 @@ export const companyInfo = {
   tagline: "Design & Web Development Agency",
   description:
     "We deliver premium digital solutions that transform businesses. Our expertise in design and development helps brands achieve their goals with precision and excellence.",
-  email: "hello@techneed.com",
-  website: "https://techneed.com",
+  email: "hello@techneedllc.com",
+  website: "https://techneedllc.com",
   logo: "/images/442411142-833108342172571-2872580981453156636-n.jpg",
   socialLinks: {
     behance: "https://www.behance.net/Techneed",

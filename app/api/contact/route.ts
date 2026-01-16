@@ -46,8 +46,8 @@ export async function POST(request: NextRequest) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          from: process.env.EMAIL_FROM || "noreply@techneed.com",
-          to: process.env.EMAIL_TO || "hello@techneed.com",
+          from: process.env.EMAIL_FROM || "noreply@techneedllc.com",
+          to: process.env.EMAIL_TO || "hello@techneedllc.com",
           subject: emailSubject,
           html: emailBody,
           reply_to: body.email,

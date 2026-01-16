@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     "React development",
     "e-commerce development",
   ],
-  authors: [{ name: "Techneed", url: "https://techneed.com" }],
+  authors: [{ name: "Techneed", url: "https://techneedllc.com" }],
   creator: "Techneed",
   publisher: "Techneed",
   formatDetection: {
@@ -41,14 +41,14 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://techneed.com"),
+  metadataBase: new URL("https://techneedllc.com"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://techneed.com",
+    url: "https://techneedllc.com",
     siteName: "Techneed",
     title: "Techneed | Design & Web Development Agency",
     description:
@@ -118,9 +118,9 @@ export default function RootLayout({
               "@type": "Organization",
               name: "Techneed",
               description: "Design & Web Development Agency",
-              url: "https://techneed.com",
-              logo: "https://techneed.com/images/442411142-833108342172571-2872580981453156636-n.jpg",
-              email: "hello@techneed.com",
+              url: "https://techneedllc.com",
+              logo: "https://techneedllc.com/images/442411142-833108342172571-2872580981453156636-n.jpg",
+              email: "hello@techneedllc.com",
               contactPoint: [
                 {
                   "@type": "ContactPoint",
