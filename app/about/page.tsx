@@ -4,7 +4,7 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { ArrowRight, Award, Users, Zap, Target, Linkedin, Twitter } from "lucide-react"
+import { ArrowRight, Award, Users, Zap, Target } from "lucide-react"
 import Link from "next/link"
 import { stats, team, values, companyInfo } from "@/data/site-data"
 
@@ -20,6 +20,9 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Users,
   Award,
 }
+
+const founders = team.filter((member) => member.creator)
+const otherMembers = team.filter((member) => !member.creator)
 
 export default function AboutPage() {
   return (
@@ -109,7 +112,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team */}
+      {/* Team - Founders & Leaders */}
       <section className="py-16 sm:py-24 px-4 sm:px-6 bg-card">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
@@ -119,37 +122,98 @@ export default function AboutPage() {
             </h2>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {team.map((member, index) => (
-              <div key={index} className="group">
-                <div className="aspect-square rounded-2xl overflow-hidden border border-border mb-4 relative">
+          <div className="flex flex-wrap justify-center gap-6">
+            {founders.map((member, index) => (
+              <a
+                key={index}
+                href={member.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group w-full sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] cursor-pointer"
+              >
+                {/* Image Card - clickable to LinkedIn */}
+                <div
+                  className="
+                    aspect-square rounded-2xl overflow-hidden mb-4 relative
+                    bg-card
+                    border border-primary/20
+                    shadow-lg
+                    group-hover:shadow-xl group-hover:border-primary/50
+                    transition-all duration-500
+                  "
+                >
+                           <div className="absolute inset-0 rounded-2xl ring-1 ring-purple-900/30 pointer-events-none" />
+
                   <img
-                    src={`/professional-headshot.png?height=400&width=400&query=professional headshot ${member.role} creative agency purple tones`}
+                    src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="
+                      w-full h-full object-cover
+                      grayscale
+                      group-hover:grayscale-0
+                      group-hover:scale-105
+                      transition-all duration-500
+                    "
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-4">
-                    <div className="flex gap-3">
-                      <Link
-                        href={member.linkedin}
-                        className="w-10 h-10 bg-card rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
-                      >
-                        <Linkedin className="w-4 h-4" />
-                      </Link>
-                      <Link
-                        href={member.twitter}
-                        className="w-10 h-10 bg-card rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
-                      >
-                        <Twitter className="w-4 h-4" />
-                      </Link>
-                    </div>
-                  </div>
                 </div>
-                <h3 className="font-bold text-lg">{member.name}</h3>
-                <p className="text-muted-foreground text-sm">{member.role}</p>
-              </div>
+
+                {/* Text */}
+                <h3 className="font-bold text-lg text-center">{member.name}</h3>
+                <p className="text-muted-foreground text-sm text-center">{member.role}</p>
+              </a>
             ))}
           </div>
+
+          {otherMembers.length > 0 && (
+            <>
+              <div className="my-12 flex items-center gap-4">
+                <div className="flex-1 h-px bg-border" />
+                <span className="text-muted-foreground text-sm font-mono">OUR MEMBER</span>
+                <div className="flex-1 h-px bg-border" />
+              </div>
+
+              <div className="flex flex-wrap justify-center gap-6">
+                {otherMembers.map((member, index) => (
+                  <a
+                    key={index}
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group w-full sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] cursor-pointer"
+                  >
+                    {/* Image Card - clickable to LinkedIn */}
+                    <div
+                      className="
+                        aspect-square rounded-2xl overflow-hidden mb-4 relative
+                        bg-card
+                        border border-border
+                        shadow-md
+                        group-hover:shadow-lg group-hover:border-primary/30
+                        transition-all duration-500
+                      "
+                    >
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="
+                          w-full h-full object-cover
+                          grayscale
+                          group-hover:grayscale-0
+                          group-hover:scale-105
+                          transition-all duration-500
+                        "
+                      />
+                    </div>
+                   
+
+                    {/* Text */}
+                    <h3 className="font-bold text-lg text-center">{member.name}</h3>
+                    <p className="text-muted-foreground text-sm text-center">{member.role}</p>
+                  </a>
+                ))}
+              </div>
+            </>
+          )}
         </div>
       </section>
 

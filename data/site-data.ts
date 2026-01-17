@@ -62,37 +62,71 @@ export const stats = [
 // 3. Save the file
 export const team = [
   {
-    name: "Alex Thompson",
-    role: "Founder & Creative Director",
-    image: "/team/alex-thompson.jpg",
+    name: "Ali Faraz",
+    role: "Co-Founder & Creative Director",
+    image: "/team/faraz.png",
     bio: "10+ years leading creative digital projects",
-    linkedin: "https://linkedin.com/in/alexthompson",
+    linkedin: "https://www.linkedin.com/company/techneedllc",
     twitter: "https://twitter.com/alexthompson",
+    creator:true
   },
   {
-    name: "Sarah Kim",
-    role: "Lead Designer",
-    image: "/team/sarah-kim.jpg",
+    name: "Abbas Haider",
+    role: "Co-Founder",
+    image: "/team/abbas.png",
+    bio: "10+ years leading creative digital projects",
+    linkedin: "https://www.linkedin.com/company/techneedllc",
+    twitter: "https://twitter.com/alexthompson",
+    creator:true
+  },
+  {
+    name: "Shafaq Sheikh",
+    role: "Creative Lead",
+    image: "/team/shafaq.png",
     bio: "Award-winning UI/UX designer",
-    linkedin: "https://linkedin.com/in/sarahkim",
+    linkedin: "https://www.linkedin.com/company/techneedllc",
     twitter: "https://twitter.com/sarahkim",
+    creator:false
   },
   {
-    name: "Marcus Chen",
-    role: "Tech Lead",
-    image: "/team/marcus-chen.jpg",
+    name: "Ramsha Ali",
+    role: "Creative Lead",
+    image: "/team/ramsha.png",
     bio: "Full-stack developer & architect",
-    linkedin: "https://linkedin.com/in/marcuschen",
+    linkedin: "https://www.linkedin.com/company/techneedllc",
     twitter: "https://twitter.com/marcuschen",
+    creator:false
+
   },
   {
     name: "Emily Rodriguez",
-    role: "UX Strategist",
-    image: "/team/emily-rodriguez.jpg",
+    role: "Co Founder",
+    image: "/professional-headshot.png?height=400&width=400&query=professional",
     bio: "User research & experience expert",
-    linkedin: "https://linkedin.com/in/emilyrodriguez",
+    linkedin: "https://www.linkedin.com/company/techneedllc",
     twitter: "https://twitter.com/emilyrodriguez",
+    creator:true
+
   },
+  {
+    name: "Hassan Raza",
+    role: "Tech Lead",
+    image: "/team/hassan.png",
+    bio: "User research & experience expert",
+    linkedin: "https://www.linkedin.com/company/techneedllcz",
+    twitter: "https://twitter.com/emilyrodriguez",
+    creator:false
+  },
+  {
+    name: "Naba Zerha",
+    role: "Busness Manager",
+    image: "/team/naba.png",
+    bio: "User research & experience expert",
+    linkedin: "https://www.linkedin.com/company/techneedllcz",
+    twitter: "https://twitter.com/emilyrodriguez",
+    creator:false
+  },
+
 ]
 
 // =========================================================================
