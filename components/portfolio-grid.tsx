@@ -6,6 +6,7 @@ import { ArrowUpRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 interface Project {
+  cover: string | Blob | undefined
   id: number
   slug: string
   title: string
@@ -72,7 +73,7 @@ export function PortfolioGrid({ projects }: { projects: Project[] }) {
                   )}
                 >
                   <img
-                    src={`/portfolio/${project.slug}.jpg`}
+                    src={project.cover}
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />

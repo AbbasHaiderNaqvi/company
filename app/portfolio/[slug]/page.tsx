@@ -107,9 +107,9 @@ export default async function ProjectPage({ params }: { params: { slug: string }
         <div className="max-w-7xl mx-auto">
           <div className="rounded-2xl sm:rounded-3xl overflow-hidden border border-border">
             <img
-              src={`/portfolio/${project.slug}.jpg`}
+              src={project.image}
               alt={project.title}
-              className="w-full aspect-[16/9] object-cover"
+              className="w-full h-full"
             />
           </div>
         </div>
@@ -120,7 +120,7 @@ export default async function ProjectPage({ params }: { params: { slug: string }
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8">Project Gallery</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            {project.gallery.map((_, index) => (
+            {/* {project.gallery.map((_, index) => (
               <div
                 key={index}
                 className="rounded-xl sm:rounded-2xl overflow-hidden border border-border group cursor-pointer"
@@ -131,7 +131,7 @@ export default async function ProjectPage({ params }: { params: { slug: string }
                   className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
-            ))}
+            ))} */}
           </div>
         </div>
       </section>

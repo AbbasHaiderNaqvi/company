@@ -1,11 +1,11 @@
-import type React from "react"
-import type { Metadata, Viewport } from "next"
-import { Inter, Geist_Mono } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
-import "./globals.css"
+import type React from "react";
+import type { Metadata, Viewport } from "next";
+import { Inter, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import "./globals.css";
 
-const _inter = Inter({ subsets: ["latin"] })
-const _geistMono = Geist_Mono({ subsets: ["latin"] })
+const _inter = Inter({ subsets: ["latin"] });
+const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
@@ -42,9 +42,7 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL("https://techneedllc.com"),
-  alternates: {
-    canonical: "/",
-  },
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -65,7 +63,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Techneed | Design & Web Development Agency",
-    description: "Professional design and web development agency with global presence in Dubai, UK, and Pakistan.",
+    description:
+      "Professional design and web development agency with global presence in Dubai, UK, and Pakistan.",
     images: ["/og-image.jpg"],
     creator: "@techneed",
   },
@@ -89,8 +88,8 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   category: "technology",
-    generator: 'v0.app'
-}
+  generator: "v0.app",
+};
 
 export const viewport: Viewport = {
   themeColor: [
@@ -100,16 +99,39 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
       <head>
+        {/* Google Site Verification */}
+        <meta
+          name="google-site-verification"
+          content="PLUZlN6PszL_Tn6iljZZeLJasG3zn_lonfVTq3uhiw8"
+        />
+
+        {/* Google Analytics GA4 */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-XXXXXXXXXX', { page_path: window.location.pathname });
+            `,
+          }}
+        />
+
+        {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -214,5 +236,5 @@ export default function RootLayout({
         <Analytics />
       </body>
     </html>
-  )
+  );
 }

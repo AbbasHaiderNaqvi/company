@@ -71,25 +71,47 @@ export default function ContactPage() {
       <Header />
 
       {/* Hero */}
-      <section className="pt-28 sm:pt-36 pb-12 sm:pb-16 px-4 sm:px-6 relative">
+      <section className="pt-28 sm:pt-36 pb-16 px-4 sm:px-6 relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent" />
+
+          <div
+            className="absolute bottom-0 right-10 w-96 h-96 rounded-full blur-3xl opacity-20"
+            style={{
+              background: "linear-gradient(135deg, rgba(138,43,226,0.2), rgba(72,61,139,0.1))",
+            }}
+          />
         </div>
 
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="max-w-3xl">
-            <span className="text-primary font-medium text-sm tracking-wider uppercase">Contact Us</span>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mt-4 tracking-tight">
-              Let's Start a <span className="text-primary">Conversation</span>
-            </h1>
-            <p className="text-muted-foreground text-lg mt-6 leading-relaxed">
-              Have a project in mind? We'd love to hear about it. Reach out to any of our global offices and we'll get
-              back to you within 24 hours.
-            </p>
-          </div>
+        <div className="max-w-7xl mx-auto relative z-10 text-left">
+          <span className="text-primary font-mono text-sm uppercase tracking-wider mb-2 inline-block">
+            Contact Us
+          </span>
+
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight max-w-3xl text-balance">
+            Let's Start a{" "}
+            <span
+              className="relative after:absolute after:inset-0 after:blur-xl after:opacity-50 animate-pulse"
+              style={{ color: "lab(44.5079% 43.3663 -64.4682)" }}
+            >
+              Conversation
+              <span
+                className="absolute inset-0 z-[-1] rounded-full"
+                style={{
+                  backgroundColor: "lab(44.5079% 43.3663 -64.4682)",
+                  filter: "blur(2rem)",
+                  opacity: 0.4,
+                }}
+              />
+            </span>
+          </h1>
+
+          <p className="text-muted-foreground text-lg sm:text-xl mt-6 max-w-3xl leading-relaxed">
+            Have a <strong style={{ color: "lab(44.5079% 43.3663 -64.4682)" }}>project</strong> in mind? Reach out to
+            our <strong style={{ color: "lab(44.5079% 43.3663 -64.4682)" }}>global offices</strong> and we’ll get back to
+            you within 24 hours, 7 days a week.
+          </p>
         </div>
       </section>
-
       <section className="pb-16 sm:pb-24 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           {/* Global Offices Grid */}

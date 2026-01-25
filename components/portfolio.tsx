@@ -61,7 +61,7 @@ export function Portfolio() {
             >
               <div className={cn("relative", index === 0 ? "aspect-[16/10] sm:aspect-[2/1]" : "aspect-[4/3]")}>
                 <img
-                  src={`/portfolio/${project.slug}.jpg`}
+                  src={project.cover}
                   alt={project.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />

@@ -291,44 +291,20 @@ export const testimonials = [
 // =========================================================================
 export const projects = [
   {
-    id: 1,
-    slug: "luxe-fashion-brand",
-    title: "Luxe Fashion Brand",
-    category: "E-Commerce",
-    description: "A premium e-commerce experience for a luxury fashion brand with immersive product showcases.",
-    fullDescription:
-      "We partnered with Luxe Brands Inc. to create a stunning e-commerce platform that matches their premium positioning. The website features immersive product galleries, smooth animations, and a seamless checkout experience that increased conversions by 45%.",
-    image: "/portfolio/luxe-fashion-brand.jpg",
-    gallery: [
-      "/portfolio/luxe-fashion-brand-1.jpg",
-      "/portfolio/luxe-fashion-brand-2.jpg",
-      "/portfolio/luxe-fashion-brand-3.jpg",
-    ],
-    tags: ["Shopify", "UI Design", "Branding", "Custom Theme"],
-    year: "2024",
-    client: "Luxe Brands Inc.",
-    services: ["E-Commerce Development", "UI/UX Design", "Brand Strategy"],
-    results: [
-      { metric: "45%", label: "Conversion Increase" },
-      { metric: "3.2s", label: "Faster Load Time" },
-      { metric: "120%", label: "Mobile Traffic Growth" },
-    ],
-    featured: true,
-  },
-  {
     id: 2,
     slug: "tech-startup-platform",
-    title: "Tech Startup Platform",
+    title: "AVI",
     category: "Web Development",
     description: "A comprehensive SaaS dashboard with real-time analytics and team collaboration features.",
     fullDescription:
       "TechVentures needed a powerful platform to manage their growing user base. We built a real-time dashboard with advanced analytics, team collaboration tools, and automated reporting that helped them scale from 1,000 to 50,000 users.",
-    image: "/portfolio/tech-startup-platform.jpg",
-    gallery: [
-      "/portfolio/tech-startup-platform-1.jpg",
-      "/portfolio/tech-startup-platform-2.jpg",
-      "/portfolio/tech-startup-platform-3.jpg",
-    ],
+    image: "/portfolio/avi/frame.png",
+    cover: "/portfolio/avi/cover.png",
+    // gallery: [
+    //   "/portfolio/tech-startup-platform-1.jpg",
+    //   "/portfolio/tech-startup-platform-2.jpg",
+    //   "/portfolio/tech-startup-platform-3.jpg",
+    // ],
     tags: ["Next.js", "Dashboard", "SaaS", "TypeScript"],
     year: "2024",
     client: "TechVentures",
@@ -341,19 +317,48 @@ export const projects = [
     featured: true,
   },
   {
+    id: 1,
+    slug: "luxe-fashion-brand",
+    title: "Plam UIUX",
+    category: "E-Commerce",
+    description: "A premium e-commerce experience for a luxury fashion brand with immersive product showcases.",
+    fullDescription:
+      "We partnered with Luxe Brands Inc. to create a stunning e-commerce platform that matches their premium positioning. The website features immersive product galleries, smooth animations, and a seamless checkout experience that increased conversions by 45%.",
+    image: "/portfolio/plam/frame.png",
+    cover: "/portfolio/plam/cover.png",
+
+    // gallery: [
+    //   "/portfolio/luxe-fashion-brand-1.jpg",
+    //   "/portfolio/luxe-fashion-brand-2.jpg",
+    //   "/portfolio/luxe-fashion-brand-3.jpg",
+    // ],
+    tags: ["Shopify", "UI Design", "Branding", "Custom Theme"],
+    year: "2024",
+    client: "Luxe Brands Inc.",
+    services: ["E-Commerce Development", "UI/UX Design", "Brand Strategy"],
+    results: [
+      { metric: "45%", label: "Conversion Increase" },
+      { metric: "3.2s", label: "Faster Load Time" },
+      { metric: "120%", label: "Mobile Traffic Growth" },
+    ],
+    featured: true,
+  },
+
+  {
     id: 3,
     slug: "creative-agency-portfolio",
-    title: "Creative Agency Portfolio",
+    title: "Gig Falcon",
     category: "UI/UX Design",
     description: "A bold and artistic portfolio website showcasing creative work with stunning animations.",
     fullDescription:
       "ArtHouse Creative wanted a portfolio that would stand out in a crowded market. We created an award-winning website with custom animations, interactive case studies, and a unique visual identity that won multiple design awards.",
-    image: "/portfolio/creative-agency-portfolio.jpg",
-    gallery: [
-      "/portfolio/creative-agency-portfolio-1.jpg",
-      "/portfolio/creative-agency-portfolio-2.jpg",
-      "/portfolio/creative-agency-portfolio-3.jpg",
-    ],
+      image: "/portfolio/gig-falcon/frame.png",
+      cover: "/portfolio/gig-falcon/cover.png",
+    // gallery: [
+    //   "/portfolio/creative-agency-portfolio-1.jpg",
+    //   "/portfolio/creative-agency-portfolio-2.jpg",
+    //   "/portfolio/creative-agency-portfolio-3.jpg",
+    // ],
     tags: ["Portfolio", "Animation", "Branding", "Framer Motion"],
     year: "2024",
     client: "ArtHouse Creative",
@@ -368,17 +373,18 @@ export const projects = [
   {
     id: 4,
     slug: "fintech-mobile-app",
-    title: "Fintech Mobile App",
+    title: "Infinity Music",
     category: "App Design",
     description: "A modern banking app with intuitive UX for seamless financial management.",
     fullDescription:
       "FinFlow Inc. needed a mobile banking solution that would appeal to younger demographics. We designed an intuitive app with biometric authentication, smart budgeting tools, and real-time notifications that achieved a 4.9 App Store rating.",
-    image: "/portfolio/fintech-mobile-app.jpg",
-    gallery: [
-      "/portfolio/fintech-mobile-app-1.jpg",
-      "/portfolio/fintech-mobile-app-2.jpg",
-      "/portfolio/fintech-mobile-app-3.jpg",
-    ],
+      image: "/portfolio/infinity-music/frame.png",
+      cover: "/portfolio/infinity-music/cover.png",
+    // gallery: [
+    //   "/portfolio/fintech-mobile-app-1.jpg",
+    //   "/portfolio/fintech-mobile-app-2.jpg",
+    //   "/portfolio/fintech-mobile-app-3.jpg",
+    // ],
     tags: ["Mobile", "Fintech", "UI/UX", "React Native"],
     year: "2023",
     client: "FinFlow Inc.",
