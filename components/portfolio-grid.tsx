@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -24,7 +24,10 @@ export function PortfolioGrid({ projects }: { projects: Project[] }) {
   const [activeCategory, setActiveCategory] = useState("All")
   const [hoveredId, setHoveredId] = useState<number | null>(null)
 
-  const filteredProjects = activeCategory === "All" ? projects : projects.filter((p) => p.category === activeCategory)
+  const filteredProjects =
+    activeCategory === "All"
+      ? projects
+      : projects.filter((p) => p.category === activeCategory)
 
   return (
     <section className="pb-16 sm:pb-24 px-4 sm:px-6">
@@ -39,7 +42,7 @@ export function PortfolioGrid({ projects }: { projects: Project[] }) {
                 "px-4 py-2.5 rounded-full text-sm transition-all whitespace-nowrap flex-shrink-0 font-medium",
                 activeCategory === category
                   ? "bg-primary text-primary-foreground"
-                  : "bg-card border border-border text-muted-foreground hover:text-foreground hover:border-primary/50",
+                  : "bg-card border border-border text-muted-foreground hover:text-foreground hover:border-primary/50"
               )}
             >
               {category}
@@ -47,10 +50,9 @@ export function PortfolioGrid({ projects }: { projects: Project[] }) {
           ))}
         </div>
 
-        {/* Creative Masonry-style Grid */}
+        {/* Masonry Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {filteredProjects.map((project, index) => {
-            // Create varying heights for masonry effect
             const isLarge = index % 5 === 0
             const isMedium = index % 3 === 1
 
@@ -61,37 +63,37 @@ export function PortfolioGrid({ projects }: { projects: Project[] }) {
                 className={cn(
                   "group relative overflow-hidden rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-500 cursor-pointer",
                   isLarge && "sm:col-span-2 sm:row-span-2",
-                  isMedium && "lg:row-span-2",
+                  isMedium && "lg:row-span-2"
                 )}
                 onMouseEnter={() => setHoveredId(project.id)}
                 onMouseLeave={() => setHoveredId(null)}
               >
+                {/* Image Container */}
                 <div
                   className={cn(
-                    "relative w-full",
-                    isLarge ? "aspect-[4/3] sm:aspect-[16/10]" : isMedium ? "aspect-[3/4]" : "aspect-[4/3]",
+                    "relative w-full overflow-hidden",
+                    isLarge
+                      ? "aspect-[4/3] sm:aspect-[16/10]"
+                      : isMedium
+                      ? "aspect-[3/4]"
+                      : "aspect-[4/3]"
                   )}
                 >
+                  {/* Cover Image */}
                   <img
-                    src={project.cover}
+                    src={project.cover as string}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-
-                  {/* Overlay */}
-                  <div
+                    draggable={false}
                     className={cn(
-                      "absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent transition-opacity duration-500",
-                      hoveredId === project.id ? "opacity-90" : "opacity-70",
+                      "absolute inset-0 w-full h-full object-cover transition-opacity duration-500",
+                      hoveredId === project.id ? "opacity-0" : "opacity-100"
                     )}
                   />
 
-                  {/* Animated border effect */}
-                  <div
-                    className={cn(
-                      "absolute inset-0 border-2 border-primary/0 rounded-2xl transition-all duration-500",
-                      hoveredId === project.id && "border-primary/50",
-                    )}
+                  {/* Hover Image with Top → Bottom Auto Scroll */}
+                  <AutoScrollImage
+                    src={project.image}
+                    active={hoveredId === project.id}
                   />
                 </div>
 
@@ -100,13 +102,17 @@ export function PortfolioGrid({ projects }: { projects: Project[] }) {
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-2">
-                        <span className="text-primary text-xs font-mono">{project.category}</span>
-                        <span className="text-muted-foreground text-xs">• {project.year}</span>
+                        <span className="text-primary text-xs font-mono">
+                          {project.category}
+                        </span>
+                        <span className="text-muted-foreground text-xs">
+                          • {project.year}
+                        </span>
                       </div>
                       <h3
                         className={cn(
                           "font-bold mb-2 transition-all duration-300",
-                          isLarge ? "text-2xl sm:text-3xl" : "text-lg sm:text-xl",
+                          isLarge ? "text-2xl sm:text-3xl" : "text-lg sm:text-xl"
                         )}
                       >
                         {project.title}
@@ -114,14 +120,19 @@ export function PortfolioGrid({ projects }: { projects: Project[] }) {
                       <p
                         className={cn(
                           "text-muted-foreground text-sm leading-relaxed transition-all duration-500",
-                          hoveredId === project.id ? "opacity-100 max-h-20" : "opacity-0 max-h-0 overflow-hidden",
+                          hoveredId === project.id
+                            ? "opacity-100 max-h-20"
+                            : "opacity-0 max-h-0 overflow-hidden"
                         )}
                       >
                         {project.description}
                       </p>
                       <div className="flex gap-2 mt-3 flex-wrap">
                         {project.tags.slice(0, 3).map((tag) => (
-                          <span key={tag} className="px-2 py-1 bg-secondary/80 backdrop-blur text-xs rounded-full">
+                          <span
+                            key={tag}
+                            className="px-2 py-1 bg-secondary/80 backdrop-blur text-xs rounded-full"
+                          >
                             {tag}
                           </span>
                         ))}
@@ -131,7 +142,9 @@ export function PortfolioGrid({ projects }: { projects: Project[] }) {
                     <div
                       className={cn(
                         "w-10 h-10 sm:w-12 sm:h-12 bg-primary rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300",
-                        hoveredId === project.id ? "scale-110 rotate-45" : "scale-100 rotate-0",
+                        hoveredId === project.id
+                          ? "scale-110 rotate-45"
+                          : "scale-100 rotate-0"
                       )}
                     >
                       <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground" />
@@ -144,5 +157,72 @@ export function PortfolioGrid({ projects }: { projects: Project[] }) {
         </div>
       </div>
     </section>
+  )
+}
+
+/* -------------------------
+  Helper Component for Auto Scrolling Image
+------------------------- */
+function AutoScrollImage({
+  src,
+  active,
+}: {
+  src: string
+  active: boolean
+}) {
+  const imgRef = useRef<HTMLImageElement>(null)
+
+  useEffect(() => {
+    const img = imgRef.current
+    if (!img) return
+
+    const container = img.parentElement
+    if (!container) return
+
+    if (!active) {
+      // Reset position when hover ends
+      img.style.transition = "transform 0.4s ease"
+      img.style.transform = "translateY(0)"
+      return
+    }
+
+    const containerHeight = container.clientHeight
+
+    const startScroll = () => {
+      // Calculate scaled image height to fit container width
+      const imageHeight =
+        img.naturalHeight * (container.clientWidth / img.naturalWidth)
+
+      if (imageHeight <= containerHeight) return
+
+      const scrollDistance = imageHeight - containerHeight
+
+      // Slow, smooth scroll (adjust duration here)
+      img.style.transition = "transform 50s linear"
+      img.style.transform = `translateY(-${scrollDistance}px)`
+    }
+
+    if (img.complete) {
+      startScroll()
+    } else {
+      img.onload = startScroll
+    }
+  }, [active])
+
+  return (
+    <img
+      ref={imgRef}
+      src={src}
+      alt=""
+      draggable={false}
+      className={cn(
+        "absolute top-0 left-0 w-full transition-opacity duration-300",
+        active ? "opacity-100" : "opacity-0"
+      )}
+      style={{
+        height: "auto",
+        willChange: "transform",
+      }}
+    />
   )
 }

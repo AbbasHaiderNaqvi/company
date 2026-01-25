@@ -21,6 +21,7 @@ import {
 } from "lucide-react"
 
 import { services, companyInfo } from "@/data/site-data"
+import { AnimatedBackground } from "@/components/animated-background"
 
 /* =========================
    GLOBAL SEO METADATA
@@ -120,6 +121,7 @@ export default function ServicesPage() {
       {/* =========================
           HERO (PRIMARY KEYWORDS)
       ========================= */}
+                  <AnimatedBackground />
 <section className="pt-28 sm:pt-36 pb-16 px-4 sm:px-6 relative overflow-hidden">
   {/* Background decorative shapes */}
   <div className="absolute inset-0 overflow-hidden pointer-events-none">

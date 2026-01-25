@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 import Link from "next/link"
 import { ArrowUpRight, ArrowRight } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -11,6 +11,7 @@ const categories = ["All", ...Array.from(new Set(projects.map((p) => p.category)
 
 export function Portfolio() {
   const [activeCategory, setActiveCategory] = useState("All")
+  const [hoveredId, setHoveredId] = useState<number | null>(null)
 
   const filteredProjects =
     activeCategory === "All"
@@ -20,7 +21,7 @@ export function Portfolio() {
   return (
     <section id="portfolio" className="py-16 sm:py-24 px-4 sm:px-6 bg-card">
       <div className="max-w-7xl mx-auto">
-        {/* Section Header - stack on mobile */}
+        {/* Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-8 sm:mb-12 gap-4 sm:gap-6">
           <div>
             <span className="text-primary font-mono text-xs sm:text-sm">OUR WORK</span>
@@ -29,7 +30,7 @@ export function Portfolio() {
             </h2>
           </div>
 
-          {/* Filter Tabs - scrollable on mobile */}
+          {/* Filter Tabs */}
           <div className="flex gap-2 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap scrollbar-hide">
             {categories.slice(0, 5).map((category) => (
               <button
@@ -39,7 +40,7 @@ export function Portfolio() {
                   "px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm transition-all whitespace-nowrap flex-shrink-0",
                   activeCategory === category
                     ? "bg-primary text-primary-foreground"
-                    : "bg-secondary text-muted-foreground hover:text-foreground",
+                    : "bg-secondary text-muted-foreground hover:text-foreground"
                 )}
               >
                 {category}
@@ -48,7 +49,7 @@ export function Portfolio() {
           </div>
         </div>
 
-        {/* Projects Grid - single column on mobile */}
+        {/* Projects Grid */}
         <div className="grid sm:grid-cols-2 gap-4 sm:gap-8">
           {filteredProjects.map((project, index) => (
             <Link
@@ -56,19 +57,36 @@ export function Portfolio() {
               key={project.id}
               className={cn(
                 "group relative overflow-hidden rounded-xl sm:rounded-2xl bg-secondary cursor-pointer block",
-                index === 0 && "sm:col-span-2",
+                index === 0 && "sm:col-span-2"
               )}
+              onMouseEnter={() => setHoveredId(project.id)}
+              onMouseLeave={() => setHoveredId(null)}
             >
-              <div className={cn("relative", index === 0 ? "aspect-[16/10] sm:aspect-[2/1]" : "aspect-[4/3]")}>
+              {/* Image Container */}
+              <div
+                className={cn(
+                  "relative w-full overflow-hidden",
+                  index === 0 ? "aspect-[16/10] sm:aspect-[2/1]" : "aspect-[4/3]"
+                )}
+              >
+                {/* Cover Image */}
                 <img
                   src={project.cover}
                   alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className={cn(
+                    "absolute inset-0 w-full h-full object-cover transition-opacity duration-500",
+                    hoveredId === project.id ? "opacity-0" : "opacity-100"
+                  )}
                 />
+
+                {/* Hover Image with slow top → bottom scroll */}
+                <AutoScrollImage src={project.image} active={hoveredId === project.id} />
+                
+                {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
               </div>
 
-              {/* Content Overlay - responsive padding */}
+              {/* Content Overlay */}
               <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8">
                 <div className="flex items-end justify-between">
                   <div>
@@ -104,5 +122,65 @@ export function Portfolio() {
         </div>
       </div>
     </section>
+  )
+}
+
+/* -------------------------
+  AutoScrollImage Component
+------------------------- */
+function AutoScrollImage({ src, active }: { src: string; active: boolean }) {
+  const imgRef = useRef<HTMLImageElement>(null)
+
+  useEffect(() => {
+    const img = imgRef.current
+    if (!img) return
+
+    const container = img.parentElement
+    if (!container) return
+
+    if (!active) {
+      // Reset on hover leave
+      img.style.transition = "transform 0.5s ease"
+      img.style.transform = "translateY(0)"
+      return
+    }
+
+    const containerHeight = container.clientHeight
+
+    const startScroll = () => {
+      const imageHeight =
+        img.naturalHeight * (container.clientWidth / img.naturalWidth)
+
+      if (imageHeight <= containerHeight) return
+
+      const scrollDistance = imageHeight - containerHeight
+
+      // SLOW scroll: 20s
+      img.style.transition = "transform 60s linear"
+      img.style.transform = `translateY(-${scrollDistance}px)`
+    }
+
+    if (img.complete) {
+      startScroll()
+    } else {
+      img.onload = startScroll
+    }
+  }, [active])
+
+  return (
+    <img
+      ref={imgRef}
+      src={src}
+      alt=""
+      draggable={false}
+      className={cn(
+        "absolute top-0 left-0 w-full transition-opacity duration-300",
+        active ? "opacity-100" : "opacity-0"
+      )}
+      style={{
+        height: "auto",
+        willChange: "transform",
+      }}
+    />
   )
 }

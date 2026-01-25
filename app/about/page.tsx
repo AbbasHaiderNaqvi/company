@@ -11,6 +11,7 @@ import { Card, CardContent } from "@/components/ui/card"
 
 import { ArrowRight, Award, Users, Zap, Target } from "lucide-react"
 import { stats, team, values, companyInfo } from "@/data/site-data"
+import { AnimatedBackground } from "@/components/animated-background"
 
 /* =========================
    GLOBAL SEO METADATA
@@ -101,6 +102,7 @@ export default function AboutPage() {
       {/* =========================
           HERO
       ========================= */}
+                  <AnimatedBackground />
       <section className="pt-28 sm:pt-36 pb-16 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <header>

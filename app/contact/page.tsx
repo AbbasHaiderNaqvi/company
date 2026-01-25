@@ -6,6 +6,7 @@ import { ContactForm } from "@/components/contact-form"
 import { Card, CardContent } from "@/components/ui/card"
 import { Mail, MapPin, Phone, Globe } from "lucide-react"
 import { companyInfo, offices } from "@/data/site-data"
+import { AnimatedBackground } from "@/components/animated-background"
 
 function UAEFlag({ className }: { className?: string }) {
   return (
@@ -71,6 +72,7 @@ export default function ContactPage() {
       <Header />
 
       {/* Hero */}
+                  <AnimatedBackground />
       <section className="pt-28 sm:pt-36 pb-16 px-4 sm:px-6 relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
 

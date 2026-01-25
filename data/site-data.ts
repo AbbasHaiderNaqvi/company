@@ -298,7 +298,7 @@ export const projects = [
     description: "A comprehensive SaaS dashboard with real-time analytics and team collaboration features.",
     fullDescription:
       "TechVentures needed a powerful platform to manage their growing user base. We built a real-time dashboard with advanced analytics, team collaboration tools, and automated reporting that helped them scale from 1,000 to 50,000 users.",
-    image: "/portfolio/avi/frame.png",
+    image: "/portfolio/plam/frame.png",
     cover: "/portfolio/avi/cover.png",
     // gallery: [
     //   "/portfolio/tech-startup-platform-1.jpg",

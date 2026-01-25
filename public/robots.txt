@@ -1,9 +1,9 @@
-# Allow all search engines
+# *
 User-agent: *
-Disallow: /admin/
-Disallow: /login/
-Disallow: /api/
 Allow: /
 
-# Sitemap location
+# Host
+Host: https://www.techneedllc.com
+
+# Sitemaps
 Sitemap: https://www.techneedllc.com/sitemap.xml
