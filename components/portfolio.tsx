@@ -7,16 +7,21 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { projects } from "@/data/site-data"
 
-const categories = ["All", ...Array.from(new Set(projects.map((p) => p.category)))]
+const categories = ["All", "Web Development","Logo Designs", "UI/UX Design", "App Design", "Brand Strategy","Pitch Deck"]
 
 export function Portfolio() {
   const [activeCategory, setActiveCategory] = useState("All")
   const [hoveredId, setHoveredId] = useState<number | null>(null)
 
-  const filteredProjects =
+  const filteredProjects = projects
+  .filter((p) => p.featured) // only show featured projects
+  .filter((p) =>
     activeCategory === "All"
-      ? projects.slice(0, 4) // Show first 4 on homepage
-      : projects.filter((p) => p.category === activeCategory).slice(0, 4)
+      ? true
+      : p.category.some(
+          (c) => c.toLowerCase().trim() === activeCategory.toLowerCase().trim()
+        )
+  )
 
   return (
     <section id="portfolio" className="py-16 sm:py-24 px-4 sm:px-6 bg-card">
@@ -26,7 +31,7 @@ export function Portfolio() {
           <div>
             <span className="text-primary font-mono text-xs sm:text-sm">OUR WORK</span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-3 sm:mt-4">
-              Selected <span className="text-primary">Projects</span>
+              Recent <span className="text-primary">Projects</span>
             </h2>
           </div>
 
@@ -71,7 +76,7 @@ export function Portfolio() {
               >
                 {/* Cover Image */}
                 <img
-                  src={project.cover}
+                  src={project.square}
                   alt={project.title}
                   className={cn(
                     "absolute inset-0 w-full h-full object-cover transition-opacity duration-500",
@@ -80,7 +85,7 @@ export function Portfolio() {
                 />
 
                 {/* Hover Image with slow top → bottom scroll */}
-                <AutoScrollImage src={project.image} active={hoveredId === project.id} />
+                <AutoScrollImage src={project.frame} active={hoveredId === project.id} />
                 
                 {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
@@ -132,40 +137,37 @@ function AutoScrollImage({ src, active }: { src: string; active: boolean }) {
   const imgRef = useRef<HTMLImageElement>(null)
 
   useEffect(() => {
-    const img = imgRef.current
-    if (!img) return
-
-    const container = img.parentElement
-    if (!container) return
-
-    if (!active) {
-      // Reset on hover leave
-      img.style.transition = "transform 0.5s ease"
-      img.style.transform = "translateY(0)"
-      return
-    }
-
-    const containerHeight = container.clientHeight
-
+    const img = imgRef.current;
+    if (!img) return;
+  
+    const container = img.parentElement;
+    if (!container) return;
+  
     const startScroll = () => {
-      const imageHeight =
-        img.naturalHeight * (container.clientWidth / img.naturalWidth)
-
-      if (imageHeight <= containerHeight) return
-
-      const scrollDistance = imageHeight - containerHeight
-
-      // SLOW scroll: 20s
-      img.style.transition = "transform 60s linear"
-      img.style.transform = `translateY(-${scrollDistance}px)`
+      const imageHeight = img.naturalHeight * (container.clientWidth / img.naturalWidth);
+      const containerHeight = container.clientHeight;
+  
+      if (imageHeight <= containerHeight) return;
+  
+      const scrollDistance = imageHeight - containerHeight;
+  
+      img.style.transition = "transform 60s linear";
+      img.style.transform = `translateY(-${scrollDistance}px)`;
+    };
+  
+    if (!active) {
+      img.style.transition = "transform 0.5s ease";
+      img.style.transform = "translateY(0)";
+      return;
     }
-
-    if (img.complete) {
-      startScroll()
+  
+    if (img.complete && img.naturalHeight !== 0) {
+      startScroll();
     } else {
-      img.onload = startScroll
+      img.onload = () => startScroll();
     }
-  }, [active])
+  }, [active]);
+  
 
   return (
     <img

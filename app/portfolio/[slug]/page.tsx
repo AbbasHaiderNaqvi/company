@@ -65,28 +65,6 @@ export default async function ProjectPage({ params }: { params: { slug: string }
                 </div>
               </div>
 
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2 mt-6">
-                {project.tags.map((tag) => (
-                  <span key={tag} className="px-3 py-1.5 bg-secondary text-xs sm:text-sm rounded-full">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Results */}
-            <div className="bg-card border border-border rounded-2xl p-6 sm:p-8">
-              <h3 className="text-lg font-bold mb-6">Project Results</h3>
-              <div className="grid grid-cols-3 gap-4">
-                {project.results.map((result, index) => (
-                  <div key={index} className="text-center">
-                    <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary">{result.metric}</div>
-                    <div className="text-xs sm:text-sm text-muted-foreground mt-1">{result.label}</div>
-                  </div>
-                ))}
-              </div>
-
               <div className="border-t border-border mt-6 pt-6">
                 <h4 className="text-sm font-medium mb-3">Services Provided</h4>
                 <div className="flex flex-wrap gap-2">
@@ -98,6 +76,18 @@ export default async function ProjectPage({ params }: { params: { slug: string }
                 </div>
               </div>
             </div>
+            
+
+            {/* Results */}
+            <div className="bg-card border border-border rounded-2xl p-6 sm:p-8">
+            <img
+              src={project.square}
+              alt={project.title}
+              className="w-full border border-border rounded-2xl"
+            />
+
+  
+            </div>
           </div>
         </div>
       </section>
@@ -107,31 +97,10 @@ export default async function ProjectPage({ params }: { params: { slug: string }
         <div className="max-w-7xl mx-auto">
           <div className="rounded-2xl sm:rounded-3xl overflow-hidden border border-border">
             <img
-              src={project.image}
+              src={project.frame}
               alt={project.title}
               className="w-full h-full"
             />
-          </div>
-        </div>
-      </section>
-
-      {/* Gallery - Using AI generated images */}
-      <section className="pb-16 sm:pb-24 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8">Project Gallery</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            {/* {project.gallery.map((_, index) => (
-              <div
-                key={index}
-                className="rounded-xl sm:rounded-2xl overflow-hidden border border-border group cursor-pointer"
-              >
-                <img
-                  src={`/portfolio/${project.slug}-${index + 1}.jpg`}
-                  alt={`${project.title} screenshot ${index + 1}`}
-                  className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-            ))} */}
           </div>
         </div>
       </section>
@@ -149,7 +118,7 @@ export default async function ProjectPage({ params }: { params: { slug: string }
               >
                 <div className="aspect-[16/10]">
                   <img
-                    src={`/portfolio/${otherProject.slug}.jpg`}
+                    src={`${otherProject.square}`}
                     alt={otherProject.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
@@ -162,7 +131,18 @@ export default async function ProjectPage({ params }: { params: { slug: string }
               </Link>
             ))}
           </div>
+          <div className="w-full text-center mt-5">
+          <Link
+            href="/portfolio"
+            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-6 sm:mb-8"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            View All
+          </Link>
+          </div>
+          
         </div>
+        
       </section>
 
       <Footer />

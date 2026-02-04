@@ -6,28 +6,33 @@ import { ArrowUpRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 interface Project {
-  cover: string | Blob | undefined
+  square: string
+  story: string
   id: number
   slug: string
   title: string
-  category: string
+  category: string[]
   description: string
-  image: string
+  frame: string
   tags: string[]
   year: string
   client: string
 }
 
-const categories = ["All", "E-Commerce", "Web Development", "UI/UX Design", "App Design", "Web3"]
+const categories = ["All", "Web Development","Logo Designs", "UI/UX Design", "App Design", "Brand Strategy","Pitch Deck"]
 
 export function PortfolioGrid({ projects }: { projects: Project[] }) {
   const [activeCategory, setActiveCategory] = useState("All")
   const [hoveredId, setHoveredId] = useState<number | null>(null)
-
   const filteredProjects =
-    activeCategory === "All"
-      ? projects
-      : projects.filter((p) => p.category === activeCategory)
+  activeCategory === "All"
+    ? projects
+    : projects.filter((p) =>
+        p.category.some(
+          (c) => c.toLowerCase().trim() === activeCategory.toLowerCase().trim()
+        )
+      )
+
 
   return (
     <section className="pb-16 sm:pb-24 px-4 sm:px-6">
@@ -81,18 +86,24 @@ export function PortfolioGrid({ projects }: { projects: Project[] }) {
                 >
                   {/* Cover Image */}
                   <img
-                    src={project.cover as string}
-                    alt={project.title}
-                    draggable={false}
-                    className={cn(
-                      "absolute inset-0 w-full h-full object-cover transition-opacity duration-500",
-                      hoveredId === project.id ? "opacity-0" : "opacity-100"
-                    )}
-                  />
+  src={
+    isLarge
+      ? project.square
+      : isMedium
+      ? project.story
+      : project.square
+  }
+  alt={project.title}
+  draggable={false}
+  className={cn(
+    "absolute inset-0 w-full h-full object-cover transition-opacity duration-500",
+    hoveredId === project.id ? "opacity-0" : "opacity-100"
+  )}
+/>
 
                   {/* Hover Image with Top → Bottom Auto Scroll */}
                   <AutoScrollImage
-                    src={project.image}
+                    src={project.frame}
                     active={hoveredId === project.id}
                   />
                 </div>
@@ -171,6 +182,7 @@ function AutoScrollImage({
   active: boolean
 }) {
   const imgRef = useRef<HTMLImageElement>(null)
+  const rafRef = useRef<number | null>(null)
 
   useEffect(() => {
     const img = imgRef.current
@@ -179,17 +191,21 @@ function AutoScrollImage({
     const container = img.parentElement
     if (!container) return
 
+    // Cleanup pending RAF
+    if (rafRef.current) {
+      cancelAnimationFrame(rafRef.current)
+      rafRef.current = null
+    }
+
     if (!active) {
-      // Reset position when hover ends
-      img.style.transition = "transform 0.4s ease"
+      img.style.transition = "transform 0.3s ease"
       img.style.transform = "translateY(0)"
       return
     }
 
-    const containerHeight = container.clientHeight
-
     const startScroll = () => {
-      // Calculate scaled image height to fit container width
+      const containerHeight = container.clientHeight
+
       const imageHeight =
         img.naturalHeight * (container.clientWidth / img.naturalWidth)
 
@@ -197,9 +213,13 @@ function AutoScrollImage({
 
       const scrollDistance = imageHeight - containerHeight
 
-      // Slow, smooth scroll (adjust duration here)
-      img.style.transition = "transform 50s linear"
-      img.style.transform = `translateY(-${scrollDistance}px)`
+      // Let opacity + paint finish first
+      rafRef.current = requestAnimationFrame(() => {
+        rafRef.current = requestAnimationFrame(() => {
+          img.style.transition = "transform 40s linear"
+          img.style.transform = `translateY(-${scrollDistance}px)`
+        })
+      })
     }
 
     if (img.complete) {
@@ -207,22 +227,21 @@ function AutoScrollImage({
     } else {
       img.onload = startScroll
     }
+
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current)
+    }
   }, [active])
 
   return (
     <img
       ref={imgRef}
       src={src}
-      alt=""
       draggable={false}
       className={cn(
-        "absolute top-0 left-0 w-full transition-opacity duration-300",
+        "absolute top-0 left-0 w-full will-change-transform transition-opacity duration-300",
         active ? "opacity-100" : "opacity-0"
       )}
-      style={{
-        height: "auto",
-        willChange: "transform",
-      }}
     />
   )
 }

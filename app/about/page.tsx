@@ -231,7 +231,7 @@ export default function AboutPage() {
               alt={`${member.name}, ${member.role} at ${companyInfo.name}`}
               fill
               sizes="280px"
-              className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+              className="object-cover group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
             />
           </div>
 
@@ -278,7 +278,7 @@ export default function AboutPage() {
               alt={`${member.name}, ${member.role} at ${companyInfo.name}`}
               fill
               sizes="240px"
-              className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+              className="object-cover  group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
             />
           </div>
 
