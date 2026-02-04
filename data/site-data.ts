@@ -100,7 +100,7 @@ export const team = [
   },
   {
     name: "Emily Rodriguez",
-    role: "Co Founder",
+    role: "Co-Founder",
     image: "/professional-headshot.png?height=400&width=400&query=professional",
     bio: "User research & experience expert",
     linkedin: "https://www.linkedin.com/company/techneedllc",
@@ -119,7 +119,7 @@ export const team = [
   },
   {
     name: "Naba Zerha",
-    role: "Busness Manager",
+    role: "Business Manager",
     image: "/team/naba.png",
     bio: "User research & experience expert",
     linkedin: "https://www.linkedin.com/company/techneedllcz",
