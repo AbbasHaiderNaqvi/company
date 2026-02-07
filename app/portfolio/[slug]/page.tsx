@@ -47,7 +47,7 @@ export default async function ProjectPage({ params }: { params: { slug: string }
 
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
             <div>
-              <span className="text-primary font-mono text-xs sm:text-sm">{project.category}</span>
+              <span className="text-primary font-mono text-xs sm:text-sm">{project.category?.join(', ') || "No category"}</span>
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mt-3 sm:mt-4">{project.title}</h1>
               <p className="text-muted-foreground text-base sm:text-lg mt-4 sm:mt-6 leading-relaxed">
                 {project.fullDescription}
@@ -125,7 +125,7 @@ export default async function ProjectPage({ params }: { params: { slug: string }
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <span className="text-primary text-xs font-mono">{otherProject.category}</span>
+                  <span className="text-primary text-xs font-mono">{otherProject.category?.join(', ') || "No category"}</span>
                   <h3 className="text-xl sm:text-2xl font-bold mt-2">{otherProject.title}</h3>
                 </div>
               </Link>

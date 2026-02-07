@@ -95,7 +95,7 @@ export function Portfolio() {
               <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8">
                 <div className="flex items-end justify-between">
                   <div>
-                    <span className="text-primary text-xs sm:text-sm font-mono">{project.category}</span>
+                    <span className="text-primary text-xs sm:text-sm font-mono"> <p>{project.category?.join(', ') || "No category"}</p></span>
                     <h3 className="text-lg sm:text-2xl md:text-3xl font-bold mt-1 sm:mt-2">{project.title}</h3>
                     <div className="flex gap-2 mt-2 sm:mt-4 flex-wrap">
                       {project.tags.slice(0, 3).map((tag) => (
