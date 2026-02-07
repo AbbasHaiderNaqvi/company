@@ -122,70 +122,60 @@ export default function ServicesPage() {
           HERO (PRIMARY KEYWORDS)
       ========================= */}
                   <AnimatedBackground />
-<section className="pt-28 sm:pt-36 pb-16 px-4 sm:px-6 relative overflow-hidden">
-  {/* Background decorative shapes */}
+                  <section className="pt-28 sm:pt-36 pb-20 px-4 sm:px-6 relative overflow-hidden bg-black">
+  {/* Background decorative shapes - Purple theme */}
   <div className="absolute inset-0 overflow-hidden pointer-events-none">
-
     <div
-      className="absolute bottom-0 left-10 w-96 h-96 rounded-full blur-3xl opacity-20"
+      className="absolute top-20 -left-40 w-[500px] h-[500px] rounded-full blur-3xl opacity-15"
       style={{
-        background: `linear-gradient(135deg,
-          rgba(138, 43, 226, 0.2),
-          rgba(72, 61, 139, 0.1))`,
+        background: `radial-gradient(circle at center, rgba(147, 51, 234, 0.4) 0%, transparent 70%)`,
+      }}
+    />
+    <div
+      className="absolute -bottom-40 -right-40 w-[600px] h-[600px] rounded-full blur-3xl opacity-10"
+      style={{
+        background: `radial-gradient(circle at center, rgba(168, 85, 247, 0.3) 0%, transparent 70%)`,
+      }}
+    />
+    <div className="absolute inset-0 opacity-[0.02]"
+      style={{
+        backgroundImage: `repeating-linear-gradient(45deg, rgba(147, 51, 234, 0.1) 0px, rgba(147, 51, 234, 0.1) 1px, transparent 1px, transparent 50px)`,
       }}
     />
   </div>
 
   <div className="max-w-7xl mx-auto relative z-10 text-left">
-    <span className="text-primary font-mono text-sm uppercase tracking-wider mb-2 inline-block">
-      Our Services
-    </span>
+    {/* Services label */}
+    <div className="flex items-center gap-3 mb-6">
+      <div className="h-[1px] w-8 bg-purple-500"></div>
+      <span className="text-purple-400 font-mono text-xs uppercase tracking-[0.2em] font-semibold">
+        Our Services
+      </span>
+    </div>
 
-    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight text-balance max-w-3xl">
-  <span
-    className="relative after:absolute after:inset-0 after:blur-xl after:opacity-50 animate-pulse"
-    style={{ color: "lab(44.5079% 43.3663 -64.4682)" }}
-  >
-    Services
-    <span
-      className="absolute inset-0 z-[-1] rounded-full"
-      style={{
-        backgroundColor: "lab(44.5079% 43.3663 -64.4682)",
-        filter: "blur(2rem)",
-        opacity: 0.4,
-      }}
-    />
+    {/* Main heading */}
+    <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] text-balance">
+  <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-200 via-purple-400 to-purple-600">
+    Design. Build. Launch.
   </span>
-  <br />
-  Web Design, UI/UX & Development
+  <span className="block text-xl sm:text-2xl md:text-3xl font-light text-white/70 mt-4 tracking-tight">
+  End-to-End <span className="text-white font-medium"> Digital Product Design</span> & <span className="text-white font-medium"> Development</span>
+</span>
 </h1>
 
-    <p className="text-muted-foreground text-lg sm:text-xl mt-6 max-w-3xl leading-relaxed">
-      From concept to launch, we provide{" "}
-      <strong style={{ color: "lab(44.5079% 43.3663 -64.4682)" }}>
-        end-to-end design
-      </strong>{" "}
-      and{" "}
-      <strong style={{ color: "lab(44.5079% 43.3663 -64.4682)" }}>
-        development services
-      </strong>{" "}
-      that transform your ideas into stunning digital experiences. Our
-      solutions are{" "}
-      <strong style={{ color: "lab(44.5079% 43.3663 -64.4682)" }}>
-        SEO-optimized
-      </strong>
-      ,{" "}
-      <strong style={{ color: "lab(44.5079% 43.3663 -64.4682)" }}>
-        high-performing
-      </strong>
-      , and{" "}
-      <strong style={{ color: "lab(44.5079% 43.3663 -64.4682)" }}>
-        globally scalable
-      </strong>
-      .
-    </p>
+{/* Description */}
+<p className="text-white/60 text-lg sm:text-xl mt-8 max-w-3xl leading-relaxed">
+  Where <span className="text-purple-300 font-medium">pixel-perfect design</span> meets 
+  <span className="text-purple-300 font-medium"> precision engineering </span>. We provide 
+  comprehensive services from <span className="text-white font-medium">user research and interface design </span> 
+  to <span className="text-white font-medium">full-stack implementation </span>, creating digital 
+  products that are both <span className="italic text-white">visually captivating </span> and 
+  <span className="text-white font-medium"> technically excellent </span>.
+</p>
 
-    <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-start">
+
+    {/* Call-to-Actions */}
+    <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-start">
       <Link href="/contact">
         <Button
           size="lg"
@@ -211,6 +201,7 @@ export default function ServicesPage() {
 
 
 
+
       {/* =========================
           SERVICES GRID
       ========================= */}
@@ -218,9 +209,7 @@ export default function ServicesPage() {
         className="pb-24 px-4 sm:px-6"
         aria-labelledby="services-list"
       >
-        <h2 id="services-list" className="sr-only">
-          Techneed Web Design and Development Services
-        </h2>
+
 
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => {

@@ -91,7 +91,7 @@ export function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-3">
               <Image
-                src="/images/442411142-833108342172571-2872580981453156636-n.jpg"
+                src="/images/techneed.png"
                 alt={`${companyInfo.name} Logo`}
                 width={40}
                 height={40}

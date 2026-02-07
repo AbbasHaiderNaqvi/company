@@ -111,15 +111,18 @@ export default function AboutPage() {
             </span>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mt-4">
-              Global Web Design & Development Agency
-            </h1>
+  End-to-End Digital Product Agency
+</h1>
 
-            <p className="text-muted-foreground text-lg mt-6 leading-relaxed">
-              <strong>{companyInfo.name}</strong> is a global web design and
-              development agency helping brands worldwide build
-              high-performance websites, intuitive UI/UX designs, and scalable
-              digital products that rank, convert, and grow.
-            </p>
+
+<p className="text-muted-foreground text-lg mt-6 leading-relaxed">
+  <strong>{companyInfo.name}</strong> is a full-service digital agency crafting 
+  <span className="font-medium text-foreground"> visually stunning designs</span> and 
+  <span className="font-medium text-foreground"> robust technical solutions</span> for 
+  brands worldwide. We deliver complete digital experiences—from user-centered 
+  UI/UX to scalable full-stack development—that engage audiences, perform 
+  flawlessly, and drive growth.
+</p>
 
             <Link href="/contact">
               <Button size="lg" className="mt-6">
@@ -307,9 +310,11 @@ export default function AboutPage() {
               Where Great Digital Products Are Built
             </h2>
             <p className="text-muted-foreground text-lg mt-4">
-              Our global team collaborates across time zones to deliver
-              world-class web design, development, and UI/UX solutions.
-            </p>
+  Our global team collaborates across time zones, blending
+  <span className="font-medium text-foreground"> creative design excellence</span> with
+  <span className="font-medium text-foreground"> technical development mastery</span> to deliver
+  complete digital solutions.
+</p>
           </div>
 
           <div className="aspect-video rounded-2xl overflow-hidden border">

@@ -114,7 +114,8 @@ export function PortfolioGrid({ projects }: { projects: Project[] }) {
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-2">
                         <span className="text-primary text-xs font-mono">
-                          {project.category}
+                        <p>{project.category?.join(', ') || "No category"}</p>
+
                         </span>
                         <span className="text-muted-foreground text-xs">
                           • {project.year}

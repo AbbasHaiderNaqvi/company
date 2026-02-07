@@ -13,7 +13,7 @@ export const companyInfo = {
     "We deliver premium digital solutions that transform businesses. Our expertise in design and development helps brands achieve their goals with precision and excellence.",
   email: "hello@techneedllc.com",
   website: "https://techneedllc.com",
-  logo: "/images/442411142-833108342172571-2872580981453156636-n.jpg",
+  logo: "/images/techneed.png",
   socialLinks: {
     behance: "https://www.behance.net/Techneed",
     linkedin: "https://www.linkedin.com/company/techneedllc",
@@ -265,22 +265,22 @@ export const processSteps = [
 export const testimonials = [
   {
     name: "Michael Roberts",
-    role: "CEO, TechVentures",
-    image: "/testimonials/michael-roberts.jpg",
+    role: "CEO, TechVent",
+    image: "/clients/michael-roberts.png",
     quote:
       "Techneed transformed our online presence completely. Their attention to detail and creative approach exceeded our expectations. The new website has significantly improved our conversion rates.",
   },
   {
     name: "Sarah Chen",
-    role: "Marketing Director, Luxe Brands",
-    image: "/testimonials/sarah-chen.jpg",
+    role: "Marketing Director, Luxy",
+    image: "/clients/sarah-chen.png",
     quote:
       "Working with Techneed was a game-changer for our brand. They understood our vision perfectly and delivered a stunning e-commerce platform that our customers love.",
   },
   {
     name: "David Miller",
     role: "Founder, StartupHub",
-    image: "/testimonials/david-miller.jpg",
+    image: "/clients/david-miller.png",
     quote:
       "The team at Techneed is incredibly talented and professional. They delivered our project on time and the results speak for themselves - a 200% increase in user engagement.",
   },
@@ -294,7 +294,7 @@ export const projects = [
     id: 1,
     slug: "avi",
     title: "AVI",
-    category: ["Web3","E-Commerce"],
+    category: ["UI/UX Design","Web Development", "App Design"],
     description: "A comprehensive SaaS dashboard with real-time analytics and team collaboration features.",
     fullDescription:
       "TechVentures needed a powerful platform to manage their growing user base. We built a real-time dashboard with advanced analytics, team collaboration tools, and automated reporting that helped them scale from 1,000 to 50,000 users.",
@@ -321,7 +321,7 @@ export const projects = [
     square: "/portfolio/plam/square.png",
     story: "/portfolio/plam/story.png",
     tags: ["Shopify", "UI Design", "Branding", "Custom Theme"],
-    year: "2024",
+    year: "2023",
     client: "Luxe Brands Inc.",
     services: ["UI/UX Design","Web Development", "App Design"],
     featured: true,
@@ -339,7 +339,7 @@ export const projects = [
     story: "/portfolio/gig-falcon/story.png",
 
     tags: ["Shopify", "UI Design", "Branding", "Custom Theme"],
-    year: "2024",
+    year: "2023",
     client: "Luxe Brands Inc.",
     services: ["UI/UX Design","Web Development", "App Design"],
     featured: true,
@@ -354,6 +354,7 @@ export const projects = [
       "We partnered with Luxe Brands Inc. to create a stunning e-commerce platform that matches their premium positioning. The website features immersive product galleries, smooth animations, and a seamless checkout experience that increased conversions by 45%.",
     frame: "/portfolio/kelvin-logan/frame.png",
     square: "/portfolio/kelvin-logan/square.png",
+
     story: "/portfolio/kelvin-logan/story.png",
 
     tags: ["Shopify", "UI Design", "Branding", "Custom Theme"],
@@ -375,7 +376,7 @@ export const projects = [
     story: "/portfolio/solitude/story.png",
 
     tags: ["Shopify", "UI Design", "Branding", "Custom Theme"],
-    year: "2024",
+    year: "2025",
     client: "Kelvin Logan",
     services: [ "Logo Designs", "Brand Strategy"],
     featured: true,
@@ -393,7 +394,7 @@ export const projects = [
     story: "/portfolio/modesto/story.jpg",
 
     tags: ["Shopify", "UI Design", "Branding", "Custom Theme"],
-    year: "2024",
+    year: "2025",
     client: "Burp Definition",
     services:["Logo Designs", "Pitch Deck"],
     featured: true,
@@ -411,7 +412,7 @@ export const projects = [
     story: "/portfolio/super-dogs/story.png",
 
     tags: ["Shopify", "UI Design", "Branding", "Custom Theme"],
-    year: "2024",
+    year: "2025",
     client: "Super Dogs",
     services: [ "Logo Designs", "Brand Strategy"],
     featured: false,
@@ -429,7 +430,7 @@ export const projects = [
     story: "/portfolio/big-bun/story.png",
 
     tags: ["Shopify", "UI Design", "Branding", "Custom Theme"],
-    year: "2024",
+    year: "2022",
     client: "Big Bun",
     services: [ "Logo Designs", "Brand Strategy"],
     featured: false,
@@ -447,7 +448,7 @@ export const projects = [
     story: "/portfolio/burp-definition/story.png",
 
     tags: ["Shopify", "UI Design", "Branding", "Custom Theme"],
-    year: "2024",
+    year: "2025",
     client: "Burp Definition",
     services:["Logo Designs", "Packaging"],
     featured: true,
@@ -466,7 +467,7 @@ export const projects = [
     story: "/portfolio/truck/story.png",
 
     tags: ["Shopify", "UI Design", "Branding", "Custom Theme"],
-    year: "2024",
+    year: "2022",
     client: "Burp Definition",
     services:["Logo Designs", "Car Wraps"],
     featured: true,
@@ -484,7 +485,7 @@ export const projects = [
     story: "/portfolio/van/story.png",
 
     tags: ["Shopify", "UI Design", "Branding", "Custom Theme"],
-    year: "2024",
+    year: "2022",
     client: "Burp Definition",
     services:["Logo Designs", "Car Wraps"],
     featured: false,

@@ -29,11 +29,21 @@ export function Testimonials() {
             </p>
 
             <div className="flex items-center justify-center gap-3 sm:gap-4">
-              <img
-                src={`/professional-headshot.png?height=56&width=56&query=professional headshot ${testimonials[current].role}`}
-                alt={testimonials[current].name}
-                className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover"
-              />
+            <div className="relative w-12 h-12 sm:w-14 sm:h-14">
+  <img
+    src={`${testimonials[current].image}`}
+    alt="techneed-client"
+    className="w-full h-full rounded-full object-cover"
+    style={{ 
+      filter: "grayscale(100%) sepia(20%) hue-rotate(260deg) saturate(150%)",
+      transition: "filter 0.3s"
+    }}
+    onMouseEnter={(e) => e.currentTarget.style.filter = "none"}
+    onMouseLeave={(e) => e.currentTarget.style.filter = "grayscale(100%) sepia(20%) hue-rotate(260deg) saturate(150%)"}
+  />
+</div>
+
+
               <div className="text-left">
                 <div className="font-bold text-sm sm:text-base">{testimonials[current].name}</div>
                 <div className="text-xs sm:text-sm text-muted-foreground">{testimonials[current].role}</div>

@@ -141,7 +141,7 @@ export default function RootLayout({
               name: "Techneed",
               description: "Design & Web Development Agency",
               url: "https://techneedllc.com",
-              logo: "https://techneedllc.com/images/442411142-833108342172571-2872580981453156636-n.jpg",
+              logo: "https://techneedllc.com/images/techneed.png",
               email: "hello@techneedllc.com",
               contactPoint: [
                 {

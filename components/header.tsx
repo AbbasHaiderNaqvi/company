@@ -28,7 +28,7 @@ export function Header() {
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center gap-2 sm:gap-3 group">
               <Image
-                src="/images/442411142-833108342172571-2872580981453156636-n.jpg"
+                src="/images/techneed.png"
                 alt="Techneed Logo"
                 width={36}
                 height={36}

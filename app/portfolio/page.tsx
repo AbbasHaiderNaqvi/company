@@ -88,78 +88,78 @@ export default function PortfolioPage() {
       ========================= */}
             <AnimatedBackground />
       
-<section className="pt-28 sm:pt-36 pb-16 px-4 sm:px-6 relative overflow-hidden">
-  {/* Background decorative shapes */}
+            <section className="pt-28 sm:pt-36 pb-20 px-4 sm:px-6 relative overflow-hidden bg-black">
+  {/* Background decorative shapes - Purple theme */}
   <div className="absolute inset-0 overflow-hidden pointer-events-none">
-
-    {/* Floating shape 2 */}
     <div
-      className="absolute bottom-0 right-10 w-96 h-96 rounded-full blur-3xl opacity-20"
+      className="absolute top-20 -left-40 w-[500px] h-[500px] rounded-full blur-3xl opacity-15"
       style={{
-        background: `linear-gradient(135deg,
-          rgba(138, 43, 226, 0.2),
-          rgba(72, 61, 139, 0.1))`,
+        background: `radial-gradient(circle at center, rgba(126, 16, 229, 0.4) 0%, transparent 70%)`,
+      }}
+    />
+    <div
+      className="absolute -bottom-40 -right-40 w-[600px] h-[600px] rounded-full blur-3xl opacity-10"
+      style={{
+        background: `radial-gradient(circle at center, rgba(168, 85, 247, 0.3) 0%, transparent 70%)`,
+      }}
+    />
+    <div className="absolute inset-0 opacity-[0.02]"
+      style={{
+        backgroundImage: `repeating-linear-gradient(45deg, rgba(147, 51, 234, 0.1) 0px, rgba(147, 51, 234, 0.1) 1px, transparent 1px, transparent 50px)`,
       }}
     />
   </div>
 
   <div className="max-w-7xl mx-auto relative z-10 text-left">
-    {/* Small uppercase label */}
-    <span className="text-primary font-mono text-sm uppercase tracking-wider mb-2 inline-block">
-      Our Portfolio
-    </span>
-
-    {/* Heading */}
-    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight text-balance max-w-3xl">
-      <span
-        className="relative after:absolute after:inset-0 after:blur-xl after:opacity-50 animate-pulse"
-        style={{ color: "lab(44.5079% 43.3663 -64.4682)" }}
-      >
-        Portfolio
-        <span
-          className="absolute inset-0 z-[-1] rounded-full"
-          style={{
-            backgroundColor: "lab(44.5079% 43.3663 -64.4682)",
-            filter: "blur(2rem)",
-            opacity: 0.4,
-          }}
-        />
+    {/* Portfolio label */}
+    <div className="flex items-center gap-3 mb-6">
+      <div className="h-[1px] w-8 bg-purple-500"></div>
+      <span className="text-purple-400 font-mono text-xs uppercase tracking-[0.2em] font-semibold">
+        Selected Works
       </span>
-      <br />
-      Web Design, UI/UX & Development
+    </div>
+
+    {/* Main heading */}
+    <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] text-balance">
+      <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-200 via-purple-400 to-purple-600">
+        Portfolio
+      </span>
+      <span className="block text-xl sm:text-2xl md:text-3xl font-light text-white/70 mt-4 tracking-tight">
+        Building <span className="text-white font-medium">Full-Stack Ecosystems</span> & <span className="text-white font-medium">Immersive Visual Identities</span>
+      </span>
     </h1>
 
     {/* Description */}
-    <p className="text-muted-foreground text-lg sm:text-xl mt-6 max-w-3xl leading-relaxed">
-      Explore a global portfolio of{" "}
-      <strong style={{ color: "lab(44.5079% 43.3663 -64.4682)" }}>
-        web design
-      </strong>
-      ,{" "}
-      <strong style={{ color: "lab(44.5079% 43.3663 -64.4682)" }}>
-        UI/UX
-      </strong>
-      , and{" "}
-      <strong style={{ color: "lab(44.5079% 43.3663 -64.4682)" }}>
-        development projects
-      </strong>{" "}
-      crafted by Techneed. Each project showcases our expertise in building{" "}
-      <strong style={{ color: "lab(44.5079% 43.3663 -64.4682)" }}>
-        high-performance
-      </strong>
-      ,{" "}
-      <strong style={{ color: "lab(44.5079% 43.3663 -64.4682)" }}>
-        scalable
-      </strong>
-      , and{" "}
-      <strong style={{ color: "lab(44.5079% 43.3663 -64.4682)" }}>
-        conversion-driven
-      </strong>{" "}
-      digital products.
+    <p className="text-white/60 text-lg sm:text-xl mt-8 max-w-3xl leading-relaxed">
+      We bridge the gap between <span className="text-purple-300">aesthetic excellence</span> and <span className="text-purple-300">technical performance</span>. 
+      From scalable web applications to complete brand transformations, our work is defined by 
+      precision, innovation, and a relentless focus on <span className="text-white italic">user impact</span>.
     </p>
 
+    {/* Disciplines - Logically Categorized */}
+
+    {/* Stats/Counter */}
+    <div className="mt-20 flex flex-wrap gap-12 border-t border-white/10 pt-10">
+      <div>
+        <div className="text-4xl font-bold text-white tracking-tighter">150<span className="text-purple-500">+</span></div>
+        <div className="text-white/40 text-xs uppercase tracking-widest mt-2">Projects Delivered</div>
+      </div>
+      <div>
+        <div className="text-4xl font-bold text-white tracking-tighter">15<span className="text-purple-500">+</span></div>
+        <div className="text-white/40 text-xs uppercase tracking-widest mt-2">Specializations</div>
+      </div>
+      <div>
+        <div className="text-4xl font-bold text-white tracking-tighter">90<span className="text-purple-500">%</span></div>
+        <div className="text-white/40 text-xs uppercase tracking-widest mt-2">Client Retention</div>
+      </div>
+      <div>
+        <div className="text-4xl font-bold text-white tracking-tighter">5<span className="text-purple-500">+</span></div>
+        <div className="text-white/40 text-xs uppercase tracking-widest mt-2">Experience</div>
+      </div>
+    </div>
   </div>
 </section>
+
 
 
 
