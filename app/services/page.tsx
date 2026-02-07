@@ -147,15 +147,15 @@ export default function ServicesPage() {
   <div className="max-w-7xl mx-auto relative z-10 text-left">
     {/* Services label */}
     <div className="flex items-center gap-3 mb-6">
-      <div className="h-[1px] w-8 bg-purple-500"></div>
-      <span className="text-purple-400 font-mono text-xs uppercase tracking-[0.2em] font-semibold">
-        Our Services
-      </span>
+      <span className="text-primary font-mono text-sm">
+      Our Services
+            </span>
+
     </div>
 
     {/* Main heading */}
     <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] text-balance">
-  <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-200 via-purple-400 to-purple-600">
+  <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-100 via-purple-400 to-purple-900">
     Design. Build. Launch.
   </span>
   <span className="block text-xl sm:text-2xl md:text-3xl font-light text-white/70 mt-4 tracking-tight">
