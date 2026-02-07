@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react"
 import { testimonials } from "@/data/site-data"
 
@@ -29,20 +30,26 @@ export function Testimonials() {
             </p>
 
             <div className="flex items-center justify-center gap-3 sm:gap-4">
-            <div className="relative w-12 h-12 sm:w-14 sm:h-14">
-  <img
-    src={`${testimonials[current].image}`}
-    alt="techneed-client"
-    className="w-full h-full rounded-full object-cover"
-    style={{ 
-      filter: "grayscale(100%) sepia(20%) hue-rotate(260deg) saturate(150%)",
-      transition: "filter 0.3s"
-    }}
-    onMouseEnter={(e) => e.currentTarget.style.filter = "none"}
-    onMouseLeave={(e) => e.currentTarget.style.filter = "grayscale(100%) sepia(20%) hue-rotate(260deg) saturate(150%)"}
-  />
-</div>
-
+              {/* Lazy-load testimonial image */}
+              <div className="relative w-12 h-12 sm:w-14 sm:h-14">
+                <Image
+                  src={testimonials[current].image}
+                  alt={testimonials[current].name}
+                  fill
+                  className="rounded-full object-cover transition-all duration-300"
+                  style={{
+                    filter: "grayscale(100%) sepia(20%) hue-rotate(260deg) saturate(150%)",
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.filter = "none")}
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.style.filter =
+                      "grayscale(100%) sepia(20%) hue-rotate(260deg) saturate(150%)")
+                  }
+                  placeholder="blur"
+                  blurDataURL="/placeholder.png" // tiny blurred image
+                  loading="lazy"
+                />
+              </div>
 
               <div className="text-left">
                 <div className="font-bold text-sm sm:text-base">{testimonials[current].name}</div>
